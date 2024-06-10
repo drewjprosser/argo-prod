@@ -1,0 +1,4 @@
+cephClusterSpec:
+cephBlockPools: {}
+cephObjectStores: {}
+cephFileSystems: {}
