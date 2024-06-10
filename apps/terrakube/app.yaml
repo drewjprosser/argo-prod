@@ -11,10 +11,10 @@ spec:
     targetRevision: 3.17.1
     helm:
       releaseName: terrakube
-      valuesObject:
+      values: |
         dex:
           config:
-            issuer: http://terrakube-api.minikube.net/dex ## CHANGE THIS DOMAIN
+            issuer: http://terrakube-api.int.prossertech.com/dex ## CHANGE THIS DOMAIN
             #.....
             #PUT ALL THE REST OF THE DEX CONFIG AND UPDATE THE URL WITH THE NEW DOMAIN
             #.....
@@ -24,7 +24,7 @@ spec:
           useTls: false
           ui:
             enabled: true
-            domain: "terrakube-ui.minikube.net" ## CHANGE THIS DOMAIN
+            domain: "terrakube-ui.int.prossertech.com" ## CHANGE THIS DOMAIN
             path: "/(.*)"
             pathType: "Prefix" 
             annotations:
@@ -32,7 +32,7 @@ spec:
               nginx.ingress.kubernetes.io/use-regex: "true"
           api:
             enabled: true
-            domain: "terrakube-api.minikube.net" ## CHANGE THIS DOMAIN
+            domain: "terrakube-api.int.prossertech.com" ## CHANGE THIS DOMAIN
             path: "/(.*)"
             pathType: "Prefix"
             annotations:
@@ -41,7 +41,7 @@ spec:
               nginx.ingress.kubernetes.io/configuration-snippet: "proxy_set_header Authorization $http_authorization;"
           registry:
             enabled: true
-            domain: "terrakube-reg.minikube.net" ## Change to your customer domain
+            domain: "terrakube-reg.int.prossertech.com" ## Change to your customer domain
             path: "/(.*)"
             pathType: "Prefix"
             annotations:
