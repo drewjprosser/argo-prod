@@ -357,7 +357,7 @@ cephClusterSpec:
 
   storage: # cluster level storage configuration and selection
     useAllNodes: false
-    useAllDevices: true
+    useAllDevices: false
     # deviceFilter:
     # config:
     #   crushRoot: "custom-root" # specify a non-default root label for the CRUSH map
@@ -441,12 +441,12 @@ cephBlockPools:
     spec:
       failureDomain: host
       replicated:
-        size: 3
+        size: 2
       # Enables collecting RBD per-image IO statistics by enabling dynamic OSD performance counters. Defaults to false.
       # For reference: https://docs.ceph.com/docs/latest/mgr/prometheus/#rbd-io-statistics
       # enableRBDStats: true
     storageClass:
-      enabled: false
+      enabled: true
       name: ceph-block
       isDefault: true
       reclaimPolicy: Delete
@@ -504,11 +504,11 @@ cephFileSystems:
     spec:
       metadataPool:
         replicated:
-          size: 3
+          size: 2
       dataPools:
         - failureDomain: host
           replicated:
-            size: 3
+            size: 2
           # Optional and highly recommended, 'data0' by default, see https://github.com/rook/rook/blob/master/Documentation/CRDs/Shared-Filesystem/ceph-filesystem-crd.md#pools
           name: data0
       metadataServer:
@@ -522,7 +522,7 @@ cephFileSystems:
             memory: "4Gi"
         priorityClassName: system-cluster-critical
     storageClass:
-      enabled: false
+      enabled: true
       isDefault: false
       name: ceph-filesystem
       # (Optional) specify a data pool to use, must be the name of one of the data pools above, 'data0' by default
@@ -578,11 +578,11 @@ cephObjectStores:
       metadataPool:
         failureDomain: host
         replicated:
-          size: 3
+          size: 2
       dataPool:
         failureDomain: host
         erasureCoded:
-          dataChunks: 2
+          dataChunks: 1
           codingChunks: 1
       preservePoolsOnDelete: true
       gateway:
@@ -598,7 +598,7 @@ cephObjectStores:
         instances: 1
         priorityClassName: system-cluster-critical
     storageClass:
-      enabled: false
+      enabled: true
       name: ceph-bucket
       reclaimPolicy: Delete
       volumeBindingMode: "Immediate"
