@@ -10,6 +10,7 @@ spec:
     targetRevision: HEAD 
     path: apps
     directory:
+      exclude: 'values.yaml'
       recurse: true
   destination:
     server: "https://kubernetes.default.svc"
