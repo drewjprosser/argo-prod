@@ -6,7 +6,7 @@ metadata:
   labels:
     name: hubble-ui
 spec:
-  ingressClassName: nginx
+  ingressClassName: cilium
   rules:
   - host: hubble.int.prossertech.com
     http:
