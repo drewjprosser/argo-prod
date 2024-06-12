@@ -17,6 +17,6 @@ spec:
         - values.yaml
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: rook-ceph
+    namespace: ingress-nginx
   syncPolicy:
     - CreateNamespace=true
