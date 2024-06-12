@@ -4,8 +4,8 @@ metadata:
  name: 01-bgp-peering-policy
 spec: # CiliumBGPPeeringPolicySpec
   nodeSelector:
-    matchLabels:
-      bgp-policy: a
+    matchExpressions:
+      - {key: somekey, operator: NotIn, values: ['never-used-value']}
   virtualRouters: # []CiliumBGPVirtualRouter
   - localASN: 65001
     exportPodCIDR: true
