@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/drewjprosser/home-argo.git
     targetRevision: HEAD 
-    path: "."
+    path: apps
     directory:
       exclude: 'values.yaml'
       recurse: true
