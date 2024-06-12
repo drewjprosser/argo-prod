@@ -18,3 +18,5 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: rook-ceph
+  syncPolicy:
+    - CreateNamespace=true
