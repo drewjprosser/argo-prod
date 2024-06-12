@@ -1,4 +1,4 @@
 controller:
   extraArgs:
-    enable-ssl-passthrough
+    enable-ssl-passthrough:
   allowSnippetAnnotations: true
