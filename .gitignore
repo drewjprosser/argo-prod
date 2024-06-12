@@ -1,2 +1,3 @@
 infra/*
 *.yaml.ignore
+.vscode/
