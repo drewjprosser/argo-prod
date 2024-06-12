@@ -1,4 +1,0 @@
-controller:
-  extraArgs:
-    enable-ssl-passthrough:
-  allowSnippetAnnotations: true
