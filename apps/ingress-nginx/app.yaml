@@ -14,8 +14,10 @@ spec:
     helm:
       releaseName: ingress-nginx
       parameters:
-        controller.extraArgs.enable-ssl-passthrough: ""
-        controller.allowSnippetAnnotations: true
+        - name: controller.extraArgs.enable-ssl-passthrough
+          value: ""
+        - name: controller.allowSnippetAnnotations
+          value: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: ingress-nginx
