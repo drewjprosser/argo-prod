@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rook-ceph-mgr-dashboard
+  namespace: rook-ceph
+  labels:
+    name: rook-ceph-mgr-dashboard
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ceph.int.prossertech.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: rook-ceph-mgr-dashboard
+            port: 
+              number: http-dashboard
