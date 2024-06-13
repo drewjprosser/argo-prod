@@ -4,4 +4,3 @@ resources:
   - resources/operator.yaml
   - resources/toolbox.yaml
   - resources/ceph-cluster.yaml
-  - resources/nodelabels.yaml
