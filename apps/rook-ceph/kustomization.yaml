@@ -1,6 +1,6 @@
 resources:
-  - common.yaml
-  - crds.yaml 
-  - operator.yaml
-  - toolbox.yaml
-  - ceph-cluster.yaml
+  - resources/common.yaml
+  - resources/crds.yaml 
+  - resources/operator.yaml
+  - resources/toolbox.yaml
+  # - resources/ceph-cluster.yaml
