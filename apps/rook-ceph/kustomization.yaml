@@ -8,3 +8,4 @@ resources:
   - resources/object.yaml
   - resources/storageclass.yaml
   - resources/blockpool.yaml
+  - resources/emptystorageclass.yaml
