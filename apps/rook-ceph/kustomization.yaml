@@ -5,3 +5,4 @@ resources:
   - resources/toolbox.yaml
   - resources/ingress.yaml
   - resources/ceph-cluster.yaml
+  - resources/object.yaml
