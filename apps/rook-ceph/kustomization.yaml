@@ -4,4 +4,4 @@ resources:
   - resources/operator.yaml
   - resources/toolbox.yaml
   - resources/ingress.yaml
-  # - resources/ceph-cluster.yaml
+  - resources/ceph-cluster.yaml
