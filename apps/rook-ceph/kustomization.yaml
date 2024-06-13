@@ -3,4 +3,4 @@ resources:
   - resources/crds.yaml 
   - resources/operator.yaml
   - resources/toolbox.yaml
-  - resources/ceph-cluster.yaml
+  # - resources/ceph-cluster.yaml
