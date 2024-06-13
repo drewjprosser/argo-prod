@@ -22,6 +22,20 @@ metadata:
 apiVersion: v1
 kind: Node
 metadata:
-  name: talos-worker-03-gpu
+  name: talos-worker-05-gpu
+  labels:
+    bgp-policy: a
+--- 
+apiVersion: v1
+kind: Node
+metadata:
+  name: talos-worker-03
+  labels:
+    bgp-policy: a
+---
+apiVersion: v1
+kind: Node
+metadata:
+  name: talos-worker-04
   labels:
     bgp-policy: a
