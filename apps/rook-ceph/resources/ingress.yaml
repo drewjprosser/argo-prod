@@ -1,10 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rook-ceph-mgr-dashboard
+  name: rook-ceph-mgr-dashboard-ingress
   namespace: rook-ceph
   labels:
-    name: rook-ceph-mgr-dashboard
+    name: rook-ceph-mgr-dashboard-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   ingressClassName: nginx
   rules:
