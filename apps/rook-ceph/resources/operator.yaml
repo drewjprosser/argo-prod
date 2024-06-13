@@ -571,6 +571,7 @@ metadata:
     app.kubernetes.io/instance: rook-ceph
     app.kubernetes.io/component: rook-ceph-operator
     app.kubernetes.io/part-of: rook-ceph-operator
+    pod-security.kubernetes.io/enforce: privileged
 spec:
   selector:
     matchLabels:
