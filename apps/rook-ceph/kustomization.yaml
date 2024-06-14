@@ -13,5 +13,5 @@ resources:
   - resources/objectstore/s3ingress.yaml
   - resources/storageclasses/emptystorageclass.yaml
   - resources/storageclasses/storageclass-bucket-delete.yaml
-  - resources/storageclass.yaml
+  - resources/storageclasses/storageclass.yaml
 
