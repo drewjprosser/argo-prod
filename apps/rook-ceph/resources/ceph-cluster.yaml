@@ -24,3 +24,4 @@ spec:
   storage:
     useAllNodes: true
     useAllDevices: true
+    deviceFilter: "sdb"

@@ -4,7 +4,7 @@ metadata:
   name: talos-control-01
   labels:
     bgp-policy: a
-    kubernetes.io/hostname: ''
+    kubernetes.io/hostname: talos-control-01
 --- 
 apiVersion: v1
 kind: Node
@@ -12,7 +12,7 @@ metadata:
   name: talos-worker-01
   labels:
     bgp-policy: a
-    kubernetes.io/hostname: ''
+    kubernetes.io/hostname: talos-worker-01
 ---
 apiVersion: v1
 kind: Node
@@ -20,7 +20,7 @@ metadata:
   name: talos-worker-02
   labels:
     bgp-policy: a
-    kubernetes.io/hostname: ''
+    kubernetes.io/hostname: talos-worker-02
 --- 
 apiVersion: v1
 kind: Node
@@ -28,7 +28,7 @@ metadata:
   name: talos-worker-05-gpu
   labels:
     bgp-policy: a
-    kubernetes.io/hostname: ''
+    kubernetes.io/hostname: talos-worker-05-gpu
 --- 
 apiVersion: v1
 kind: Node
@@ -36,7 +36,7 @@ metadata:
   name: talos-worker-03
   labels:
     bgp-policy: a
-    kubernetes.io/hostname: ''
+    kubernetes.io/hostname: talos-worker-03
 ---
 apiVersion: v1
 kind: Node
@@ -44,4 +44,4 @@ metadata:
   name: talos-worker-04
   labels:
     bgp-policy: a
-    kubernetes.io/hostname: ''
+    kubernetes.io/hostname: talos-worker-04
