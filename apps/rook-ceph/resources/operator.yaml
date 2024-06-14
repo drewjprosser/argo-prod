@@ -75,7 +75,7 @@ data:
   # CSI_DRIVER_NAME_PREFIX: "rook-ceph"
 
   # Set replicas for csi provisioner deployment.
-  CSI_PROVISIONER_REPLICAS: "1"
+  CSI_PROVISIONER_REPLICAS: "2"
 
   # OMAP generator will generate the omap mapping between the PV name and the RBD image.
   # CSI_ENABLE_OMAP_GENERATOR need to be enabled when we are using rbd mirroring feature.
@@ -84,17 +84,17 @@ data:
   # CSI_ENABLE_OMAP_GENERATOR: "false"
 
   # set to false to disable deployment of snapshotter container in CephFS provisioner pod.
-  CSI_ENABLE_CEPHFS_SNAPSHOTTER: "true"
+  CSI_ENABLE_CEPHFS_SNAPSHOTTER: "false"
 
   # set to false to disable deployment of snapshotter container in NFS provisioner pod.
-  CSI_ENABLE_NFS_SNAPSHOTTER: "true"
+  CSI_ENABLE_NFS_SNAPSHOTTER: "false"
 
   # set to false to disable deployment of snapshotter container in RBD provisioner pod.
-  CSI_ENABLE_RBD_SNAPSHOTTER: "true"
+  CSI_ENABLE_RBD_SNAPSHOTTER: "false"
 
   # set to false to disable volume group snapshot feature. This feature is
   # enabled by default as long as the necessary CRDs are available in the cluster.
-  CSI_ENABLE_VOLUME_GROUP_SNAPSHOT: "true"
+  CSI_ENABLE_VOLUME_GROUP_SNAPSHOT: "false"
   # Enable cephfs kernel driver instead of ceph-fuse.
   # If you disable the kernel client, your application may be disrupted during upgrade.
   # See the upgrade guide: https://rook.io/docs/rook/latest/ceph-upgrade.html
@@ -548,7 +548,7 @@ data:
   # Disable automatic orchestration when new devices are discovered
   ROOK_DISABLE_DEVICE_HOTPLUG: "false"
   # The duration between discovering devices in the rook-discover daemonset.
-  ROOK_DISCOVER_DEVICES_INTERVAL: "60m"
+  ROOK_DISCOVER_DEVICES_INTERVAL: "10m"
   # DISCOVER_DAEMON_RESOURCES: |
   #   - name: DISCOVER_DAEMON_RESOURCES
   #     resources:
