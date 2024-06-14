@@ -1,6 +1,7 @@
 resources:
   - resources/common.yaml
-  - resources/crds.yaml 
+  - resources/crds.yaml
+  - resources/emptystorageclass.yaml
   - resources/operator.yaml
   - resources/toolbox.yaml
   - resources/ingress.yaml
