@@ -1,23 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rook-ceph-mgr-dashboard-ingress
+  name: rook-ceph-mgr-dashboard
   namespace: rook-ceph
-  labels:
-    name: rook-ceph-mgr-dashboard-ingress
   annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      proxy_ssl_verify off;
 spec:
-  ingressClassName: nginx
+  ingressClassName: "nginx"
   rules:
   - host: ceph.int.prossertech.com
     http:
       paths:
-      - pathType: Prefix
-        path: "/"
+      - path: /
+        pathType: Prefix
         backend:
           service:
             name: rook-ceph-mgr-dashboard
-            port: 
+            port:
               name: https-dashboard
