@@ -1,13 +1,14 @@
 resources:
+  - resources/blockpool.yaml
+  - resources/ceph-cluster.yaml
   - resources/common.yaml
   - resources/crds.yaml
   - resources/emptystorageclass.yaml
-  - resources/operator.yaml
-  - resources/toolbox.yaml
   - resources/ingress.yaml
-  - resources/ceph-cluster.yaml
+  - resources/mgrblockpool.yaml
   - resources/object.yaml
   - resources/objectuser.yaml
+  - resources/operator.yaml
+  - resources/s3ingress.yaml
   - resources/storageclass.yaml
-  - resources/blockpool.yaml
-  - resources/mgrblockpool.yaml
+  - resources/toolbox.yaml
