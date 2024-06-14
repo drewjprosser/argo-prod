@@ -11,9 +11,11 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/rook-ceph
+    path: apps/rook-ceph/resources
     repoURL: https://github.com/drewjprosser/home-argo.git
     targetRevision: HEAD
+    directory: 
+      recurse: true
   syncPolicy:
     automated:
       prune: true
