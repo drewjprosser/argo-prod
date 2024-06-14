@@ -6,6 +6,7 @@ resources:
   - resources/ingress.yaml
   - resources/ceph-cluster.yaml
   - resources/object.yaml
+  - resources/objectuser.yaml
   - resources/storageclass.yaml
   - resources/blockpool.yaml
   - resources/mgrblockpool.yaml
