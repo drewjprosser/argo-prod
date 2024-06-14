@@ -6,5 +6,5 @@ metadata:
 spec:
   name: .mgr
   replicated:
-    size: 1
+    size: 2
     requireSafeReplicaSize: false
