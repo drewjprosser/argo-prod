@@ -1,14 +1,17 @@
 resources:
-  - resources/blockpool.yaml
-  - resources/ceph-cluster.yaml
-  - resources/common.yaml
-  - resources/crds.yaml
-  - resources/emptystorageclass.yaml
-  - resources/ingress.yaml
-  - resources/mgrblockpool.yaml
-  - resources/object.yaml
-  - resources/objectuser.yaml
-  - resources/operator.yaml
-  - resources/s3ingress.yaml
+  - resources/blockpools/blockpool.yaml
+  - resources/blockpools/mgrblockpool.yaml 
+  - resources/common/ceph-cluster.yaml
+  - resources/common/common.yaml
+  - resources/common/crds.yaml
+  - resources/common/ingress.yaml
+  - resources/common/operator.yaml
+  - resources/common/toolbox.yaml
+  - resources/objectstore/object-bucket-claim-delete.yaml
+  - resources/objectstore/object.yaml
+  - resources/objectstore/objectuser.yaml
+  - resources/objectstore/s3ingress.yaml
+  - resources/storageclasses/emptystorageclass.yaml
+  - resources/storageclasses/storageclass-bucket-delete.yaml
   - resources/storageclass.yaml
-  - resources/toolbox.yaml
+
