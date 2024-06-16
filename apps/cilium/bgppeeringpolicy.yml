@@ -5,7 +5,7 @@ metadata:
 spec: # CiliumBGPPeeringPolicySpec
   nodeSelector:
     matchLabels:
-      bgp-policy: a
+      node.kubernetes.io/bgp-policy: a
   virtualRouters: # []CiliumBGPVirtualRouter
   - localASN: 65001
     exportPodCIDR: true
