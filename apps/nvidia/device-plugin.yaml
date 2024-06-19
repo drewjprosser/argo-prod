@@ -18,7 +18,7 @@ spec:
           value: "nvidia"
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: default
+    namespace: nvidia-device-plugin
   syncPolicy:
     automated:
       prune: true
