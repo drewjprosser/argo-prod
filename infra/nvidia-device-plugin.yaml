@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: infra/nvidia
+    path: infra/nvidia-device-plugin
     repoURL: https://github.com/drewjprosser/home-argo.git
     targetRevision: HEAD
     directory: 
