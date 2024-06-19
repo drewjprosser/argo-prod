@@ -5,6 +5,7 @@ metadata:
   labels:
     name: jellyfin-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: jellyfin.int.prossertech.com
     http:
