@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nvidia-device-plugin
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: nvdp
+    repoURL: https://nvidia.github.io/k8s-device-plugin
+    targetRevision: 0.15.0
+    helm:
+      releaseName: nvidia-device-plugin
+      parameters:
+        - name: "runtimeClassName"
+          value: "nvidia"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
