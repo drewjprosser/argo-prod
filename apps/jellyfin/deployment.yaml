@@ -17,7 +17,6 @@ spec:
         app.kubernetes.io/instance: jellyfin-1
         app.kubernetes.io/component: server
     spec:
-      runtimeClass: nvidia
       nodeSelector: 
         node.kubernetes.io/type: gpu
       containers:
@@ -27,8 +26,10 @@ spec:
           runAsUser: 1001
           runAsGroup: 1001
         env:
-          - name: JELLYFIN_PublishedServerUri
-            value: http://jellyfin-svc.jellyfin.svc.cluster.local
+          - name: JELLYFIN_PublishedServerUrl
+            value: http://jellyfin.prossertech.com
+          - name: NVIDIA_DRIVER_CAPABILITIES
+            value: all
         resources:
           requests:
             nvidia.com/gpu: "1"
