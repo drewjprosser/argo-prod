@@ -1,23 +1,23 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: jellyfin-ingress
-  labels:
-    name: jellyfin-ingress
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: jellyfin.int.prossertech.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: jellyfin-svc
-            port: 
-              name: http
----
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: jellyfin-ingress
+#   labels:
+#     name: jellyfin-ingress
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: jellyfin.int.prossertech.com
+#     http:
+#       paths:
+#       - pathType: Prefix
+#         path: "/"
+#         backend:
+#           service:
+#             name: jellyfin-svc
+#             port: 
+#               name: http
+# ---
 apiVersion: v1
 kind: Service
 metadata:
