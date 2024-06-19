@@ -17,14 +17,8 @@ spec:
         app.kubernetes.io/instance: jellyfin-1
         app.kubernetes.io/component: server
     spec:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: node.kubernetes.io/type
-              operator: In
-              values:
-              - gpu
+      nodeSelector: 
+        node.kubernetes.io/type: gpu
       containers:
       - name: jellyfin
         image: jellyfin/jellyfin
@@ -36,11 +30,11 @@ spec:
             value: http://jellyfin-svc.jellyfin.svc.cluster.local
         resources:
           requests:
-            nvidia.com/gpu.shared: 1
+            nvidia.com/gpu.shared: "1"
             memory: "1Gi"
             cpu: "1"
           limits:
-            nvidia.com/gpu.shared: 1
+            nvidia.com/gpu.shared: "1"
             memory: "2Gi"
             cpu: "2"
         ports:
