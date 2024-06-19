@@ -17,6 +17,7 @@ spec:
         app.kubernetes.io/instance: jellyfin-1
         app.kubernetes.io/component: server
     spec:
+      runtimeClass: nvidia
       nodeSelector: 
         node.kubernetes.io/type: gpu
       containers:
