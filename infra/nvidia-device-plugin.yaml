@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nvidia-device-plugin
+  name: nvidia
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: infra/nvidia-device-plugin
+    path: infra/nvidia
     repoURL: https://github.com/drewjprosser/home-argo.git
     targetRevision: HEAD
   syncPolicy:
