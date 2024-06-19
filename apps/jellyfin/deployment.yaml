@@ -35,8 +35,13 @@ spec:
           - name: JELLYFIN_PublishedServerUrl
             value: http://jellyfin-svc.jellyfin.svc.cluster.local
         resources:
+          requests:
+            nvidia.com/gpu.shared: 1
+            memory: "1024Mi"
+            cpu: "1.0"
           limits:
-            memory: "8192Mi"
+            nvidia.com/gpu.shared: 1
+            memory: "2048Mi"
             cpu: "4.0"
         ports:
           - containerPort: 8096
@@ -55,26 +60,23 @@ spec:
             server: storage-pve-02.int.prossertech.com
             path: /data/rke/jellyfin/config
         - name: cache
-          nfs: 
-            server: storage-pve-02.int.prossertech.com
-            path: /data/rke/jellyfin/cache
+          persistentVolumeClaim:
+            claimName: jellyfin-cache-claim
         - name: media
           nfs:
             server: storage-pve-02.int.prossertech.com
             path: /data/media
 ---
 apiVersion: v1
-kind: Service
+kind: PersistentVolumeClaim
 metadata:
-  name: jellyfin-svc
-  namespace: jellyfin
+  name: jellyfin-cache-claim
+  labels:
+    app: jellyfin
 spec:
-  selector:
-    app.kubernetes.io/name: jellyfin
-    app.kubernetes.io/instance: jellyfin-1
-    app.kubernetes.io/component: server
-  ports:
-  - name: http
-    protocol: TCP
-    port: 80
-    targetPort: 8096
+  storageClassName: rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
