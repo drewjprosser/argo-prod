@@ -18,7 +18,7 @@ data:
         deviceIDStrategy: uuid
     sharing:
       mps:
-        renameByDefault: true
+        renameByDefault: false
         resources:
         - name: nvidia.com/gpu
           replicas: 10
