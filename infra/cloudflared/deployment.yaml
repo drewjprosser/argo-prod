@@ -26,7 +26,7 @@ metadata:
   name: cloudflared
   namespace: cloudflared
 spec:
-  restartPolicy: Always
+  # restartPolicy: Always
   selector:
     matchLabels:
       app: cloudflared
@@ -49,8 +49,8 @@ spec:
         - run
         resources:
           limits:
-            memory: "1024Mi"
-            cpu: "1.0"
+            memory: "1Gi"
+            cpu: "1"
         livenessProbe:
           httpGet:
             # Cloudflared has a /ready endpoint which returns 200 if and only if
