@@ -14,10 +14,12 @@ spec:
     helm:
       releaseName: nvidia-device-plugin
       parameters:
-        - name: "runtimeClassName"
-          value: "nvidia"
+        # - name: "runtimeClassName"
+        #   value: "nvidia"
         - name: "gfd.enabled"
           value: "true"
+        - name: "config.name"
+          value: "nvidia-plugin-config"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: nvidia-device-plugin
