@@ -17,7 +17,7 @@ data:
 
     ingress:
     - hostname: jellyfin.prossertech.com
-      service: http://jellyfin-svc.jellyfin
+      service: http://jellyfin-svc.jellyfin.svc.cluster.local
     - service: http_status:404
 ---
 apiVersion: apps/v1
