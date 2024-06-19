@@ -16,6 +16,8 @@ spec:
       parameters:
         - name: "driver.enabled"
           value: "false"
+        - name: "toolkit.enabled"
+          value: "false"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: gpu-operator
