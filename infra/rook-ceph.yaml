@@ -1,19 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: rook-ceph
   namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
+  destination:
+    namespace: rook-ceph
+    server: https://kubernetes.default.svc
   project: default
   source:
+    path: infra/rook-ceph
     repoURL: https://github.com/drewjprosser/home-argo.git
-    targetRevision: HEAD 
-    path: apps/argocd
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: argocd
+    targetRevision: HEAD
+    directory: 
+      recurse: true
   syncPolicy:
     automated:
       prune: true

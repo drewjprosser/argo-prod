@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cilium
+  name: argocd
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,10 +10,10 @@ spec:
   source:
     repoURL: https://github.com/drewjprosser/home-argo.git
     targetRevision: HEAD 
-    path: apps/cilium
+    path: infra/argocd
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: kube-system
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
