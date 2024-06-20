@@ -27,7 +27,6 @@ spec:
           runAsGroup: 1001
           seccompProfile:
             type: Unconfined
-          procMount: Unmasked
         env:
           - name: JELLYFIN_PublishedServerUrl
             value: http://jellyfin.prossertech.com
