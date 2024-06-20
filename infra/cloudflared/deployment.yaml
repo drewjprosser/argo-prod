@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cloudflared
+  name: cloudflared-configmap
   namespace: cloudflared
 data:
   config.yaml: |
@@ -14,6 +14,8 @@ data:
     # E.g. `cloudflared tunnel route dns example-tunnel tunnel.example.com`.
 
     ingress:
+    - hostname: prossertech.com
+      service: http://prossertech-svc.prossertech.svc.cluster.local
     - hostname: jellyfin.prossertech.com
       service: http://jellyfin-svc.jellyfin.svc.cluster.local
     - hostname: vault.prossertech.com
