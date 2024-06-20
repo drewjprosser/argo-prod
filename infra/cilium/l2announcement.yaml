@@ -3,9 +3,6 @@ kind: CiliumL2AnnouncementPolicy
 metadata:
   name: policy1
 spec:
-  serviceSelector:
-    matchExpressions:
-      - {key: somekey, operator: NotIn, values: ['never-used-value']}
   nodeSelector:
     matchExpressions:
       - key: node-role.kubernetes.io/control-plane
