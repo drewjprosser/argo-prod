@@ -35,12 +35,12 @@ spec:
         resources:
           requests:
             nvidia.com/gpu: "1"
-            memory: "1Gi"
-            cpu: "1"
+            # memory: "1Gi"
+            # cpu: "1"
           limits:
             nvidia.com/gpu: "1"
-            memory: "2Gi"
-            cpu: "2"
+            # memory: "2Gi"
+            # cpu: "2"
         ports:
           - containerPort: 8096
           - containerPort: 1900
