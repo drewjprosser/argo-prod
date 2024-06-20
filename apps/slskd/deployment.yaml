@@ -29,6 +29,7 @@ spec:
             cpu: "2.0"
         ports:
         - containerPort: 5030
+        - containerPort: 5031
         - containerPort: 50300
         volumeMounts:
           - name: music
@@ -70,6 +71,10 @@ metadata:
   name: slskd-ingress
   labels:
     name: slskd-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
   rules:
@@ -82,4 +87,4 @@ spec:
           service:
             name: slskd-svc
             port: 
-              name: http
+              name: https
