@@ -71,10 +71,10 @@ metadata:
   name: slskd-ingress
   labels:
     name: slskd-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  # annotations:
+  #   nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  #   nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  #   nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
   rules:
@@ -87,4 +87,4 @@ spec:
           service:
             name: slskd-svc
             port: 
-              name: https
+              name: http
