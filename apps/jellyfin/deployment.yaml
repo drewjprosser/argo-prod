@@ -32,6 +32,8 @@ spec:
             value: http://jellyfin.prossertech.com
           - name: NVIDIA_DRIVER_CAPABILITIES
             value: all
+          - name: NVIDIA_VISIBLE_DEVICES
+            value: all
         resources:
           requests:
             nvidia.com/gpu: "1"

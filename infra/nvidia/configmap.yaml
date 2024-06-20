@@ -17,8 +17,9 @@ data:
         deviceListStrategy: envvar
         deviceIDStrategy: uuid
     sharing:
-      mps:
+      timeSlicing:
         renameByDefault: false
+        failRequestsGreaterThanOne: true
         resources:
         - name: nvidia.com/gpu
           replicas: 10
