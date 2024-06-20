@@ -63,3 +63,23 @@ spec:
   - name: slskd
     port: 50300
     targetPort: 50300
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: slskd-ingress
+  labels:
+    name: slskd-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: slskd.int.prossertech.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: slskd-svc
+            port: 
+              name: http
