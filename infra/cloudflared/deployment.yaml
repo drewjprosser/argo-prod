@@ -3,8 +3,6 @@ kind: ConfigMap
 metadata:
   name: cloudflared
   namespace: cloudflared
-  annotations:
-    reloader.stakater.com/auto: "true"
 data:
   config.yaml: |
     tunnel: k8s
@@ -18,6 +16,8 @@ data:
     ingress:
     - hostname: jellyfin.prossertech.com
       service: http://jellyfin-svc.jellyfin.svc.cluster.local
+    - hostname: vault.prossertech.com
+      service: http://vaultwarden-svc.vaultwarden.svc.cluster.local
     - service: http_status:404
 ---
 apiVersion: apps/v1
@@ -25,6 +25,8 @@ kind: Deployment
 metadata:
   name: cloudflared
   namespace: cloudflared
+  annotations:
+    reloader.stakater.com/auto: "true"
 spec:
   # restartPolicy: Always
   selector:
