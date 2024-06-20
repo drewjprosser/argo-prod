@@ -8,7 +8,7 @@ spec: # CiliumBGPPeeringPolicySpec
       node.kubernetes.io/bgp-policy: a
   virtualRouters: # []CiliumBGPVirtualRouter
   - localASN: 65001
-    exportPodCIDR: true
+    # exportPodCIDR: true
     neighbors: # []CiliumBGPNeighbor
     - peerAddress: '10.10.10.1/32'
       peerASN: 65001
