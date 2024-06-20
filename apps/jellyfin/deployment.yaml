@@ -80,3 +80,19 @@ spec:
   resources:
     requests:
       storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyfin-svc
+  namespace: jellyfin
+spec:
+  selector:
+    app.kubernetes.io/name: jellyfin
+    app.kubernetes.io/instance: jellyfin-1
+    app.kubernetes.io/component: server
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8096
