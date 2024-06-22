@@ -30,9 +30,7 @@ metadata:
   namespace: prossertech
 spec:
   selector:
-    app.kubernetes.io/name: prossertech
-    app.kubernetes.io/instance: prossertech-1
-    app.kubernetes.io/component: server
+    app: prossertech
   ports:
   - name: http
     protocol: TCP
