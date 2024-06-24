@@ -21,6 +21,7 @@ spec:
         image: cloudflare/cloudflared:2024.6.1
         args:
         - tunnel
+        - metrics 0.0.0.0:2000
         - run
         env:
           - name: TUNNEL_TOKEN
