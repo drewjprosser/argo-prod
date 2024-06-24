@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/idrac-fan-control
+    path: infra/idrac-fan-control
     repoURL: https://github.com/drewjprosser/home-argo.git
     targetRevision: HEAD
     directory: 
