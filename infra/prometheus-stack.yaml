@@ -14,15 +14,30 @@ spec:
     helm:
       releaseName: kube-prometheus-stack
       valuesObject:
-        ingress:
-          enabled: true
-          ingressClassName: nginx
-          hosts:
-            - prometheus.int.prossertech.com
-            - grafana.int.prossertech.com
-            - alert.int.prossertech.com
-          paths: 
-            - /
+        alertmanager:
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            hosts:
+              - alert.int.prossertech.com
+            paths: 
+              - /
+        grafana:
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            hosts:
+              - grafana.int.prossertech.com
+            paths: 
+              - /
+        prometheus:
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            hosts:
+              - prometheus.int.prossertech.com
+            paths: 
+              - /
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-prometheus-stack
