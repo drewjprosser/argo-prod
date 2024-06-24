@@ -23,6 +23,16 @@ spec:
           value: /music
         - name: SLSKD_REMOTE_CONFIGURATION
           value: "true"
+        - name: SLSKD_SLSK_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: slskd-secret
+              key: username
+        - name: SLSKD_SLSK_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: slskd-secret
+              key: password
         resources:
           limits:
             memory: "2048Mi"
