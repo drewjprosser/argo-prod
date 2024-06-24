@@ -1,2 +1,3 @@
 .vscode/*
 *.yaml.ignore
+*.sec.yaml

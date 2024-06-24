@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idrac-fan-control
+  namespace: idrac-fan-control
+spec:
+  selector:
+    matchLabels:
+      app: idrac-fan-control
+  template:
+    metadata:
+      labels:
+        app: idrac-fan-control
+    spec:
+      containers:
+      - name: idrac-fan-control-pve-01
+        image: tigerblue77/idrac-fan-control:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        env:
+        - name: IDRAC_HOST
+          valueFrom:
+            secretKeyRef:
+              name: idrac-credentials-pve-01
+              key: IDRAC_HOST
+        - name: IDRAC_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: idrac-credentials-pve-01
+              key: IDRAC_USERNAME
+        - name: IDRAC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: idrac-credentials-pve-01
+              key: IDRAC_PASSWORD
+        - name: FAN_SPEED
+          value: "20" # %
+        - name: CPU_TEMPERATURE_THRESHOLD
+          value: "60" # C
+        - name: CHECK_INTERVAL
+          value:  "30" # seconds
+        - name: DISABLE_THIRD_PARTY_PCIE_CARD_DELL_DEFAULT_COOLING_RESPONSE
+          value: "true"
+      - name: idrac-fan-control-pve-02
+        image: tigerblue77/idrac-fan-control:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        env:
+        - name: IDRAC_HOST
+          valueFrom:
+            secretKeyRef:
+              name: idrac-credentials-pve-02
+              key: IDRAC_HOST
+        - name: IDRAC_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: idrac-credentials-pve-02
+              key: IDRAC_USERNAME
+        - name: IDRAC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: idrac-credentials
+              key: IDRAC_PASSWORD
+        - name: FAN_SPEED
+          value: "20" # %
+        - name: CPU_TEMPERATURE_THRESHOLD
+          value: "60" # C
+        - name: CHECK_INTERVAL
+          value:  "30" # seconds
+        - name: DISABLE_THIRD_PARTY_PCIE_CARD_DELL_DEFAULT_COOLING_RESPONSE
+          value: "true"
