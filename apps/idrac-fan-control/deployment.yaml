@@ -65,7 +65,7 @@ spec:
         - name: IDRAC_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: idrac-credentials
+              name: idrac-credentials-pve-02
               key: IDRAC_PASSWORD
         - name: FAN_SPEED
           value: "20" # %
