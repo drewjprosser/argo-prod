@@ -13,6 +13,11 @@ spec:
     targetRevision: 2.19.0
     helm:
       releaseName: awx-operator
+      parameters:
+        - name: "AWX.enabled"
+          value: "true"
+        - name: "AWX.spec.ingress_type"
+          value: "ingress"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: awx
