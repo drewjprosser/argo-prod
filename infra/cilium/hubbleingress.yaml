@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: hubble.int.prossertech.com
+  - host: hubble.talos.prossertech.com
     http:
       paths:
       - pathType: Prefix

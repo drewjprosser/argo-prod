@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: "nginx"
   rules:
-  - host: ceph.int.prossertech.com
+  - host: ceph.talos.prossertech.com
     http:
       paths:
       - path: /

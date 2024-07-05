@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: argocd.int.prossertech.com
+  - host: argocd.talos.prossertech.com
     http:
       paths:
       - pathType: Prefix
