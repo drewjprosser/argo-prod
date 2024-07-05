@@ -88,7 +88,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: slskd.int.prossertech.com
+  - host: slskd.talos.prossertech.com
     http:
       paths:
       - pathType: Prefix
