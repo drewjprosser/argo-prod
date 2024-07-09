@@ -21,9 +21,9 @@ spec:
               - host: vault.talos.prossertech.com
                 paths: ["/"]
         ui: 
-          enable: true
+          enabled: true
         injector:
-          enable: false
+          enabled: false
   destination:
     server: "https://kubernetes.default.svc"
     namespace: vault
