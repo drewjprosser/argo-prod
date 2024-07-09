@@ -22,6 +22,8 @@ spec:
                 paths: ["/"]
         ui: 
           enable: true
+        injector:
+          enable: false
   destination:
     server: "https://kubernetes.default.svc"
     namespace: vault
