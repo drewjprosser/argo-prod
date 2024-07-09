@@ -20,8 +20,6 @@ spec:
             hosts:
               - host: vault.talos.prossertech.com
                 paths: ["/"]
-        ui: 
-          enabled: true
         injector:
           enabled: false
   destination:
