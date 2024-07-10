@@ -20,8 +20,6 @@ data:
       service: http://jellyfin-svc.jellyfin.svc.cluster.local
     - hostname: vault.prossertech.com
       service: http://vaultwarden-svc.vaultwarden.svc.cluster.local
-    - hostname: atlantis.prossertech.com
-      service: http://10.10.10.207:30604
     - service: http_status:404
 ---
 apiVersion: apps/v1
