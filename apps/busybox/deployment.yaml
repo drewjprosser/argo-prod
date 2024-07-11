@@ -18,3 +18,5 @@ spec:
       containers:
       - name: busybox
         image: busybox:latest
+        command:
+          - "/bin/bash"
