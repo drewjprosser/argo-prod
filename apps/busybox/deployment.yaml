@@ -19,4 +19,4 @@ spec:
       - name: busybox
         image: busybox:latest
         command:
-          - "/bin/bash"
+          - "sh"
