@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: percona-pg
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: percona-pg
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: infra/percona-pg
+    repoURL: https://github.com/drewjprosser/home-argo.git
+    targetRevision: HEAD
+    directory: 
+      recurse: true
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+    automated:
+      prune: true
+      selfHeal: true
