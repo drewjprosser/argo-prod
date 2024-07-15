@@ -18,7 +18,7 @@ spec:
           ingressClassResources:
             default: "true"
           extraArgs:
-            enable-ssl-passthrough:
+            enable-ssl-passthrough: ""
           allowSnippetAnnotations: "true"
         service:
           annotations:
