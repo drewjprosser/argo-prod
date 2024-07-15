@@ -18,7 +18,7 @@ spec:
           ingress:
             enabled: true
             hosts:
-              - host: vault.talos.prossertech.com
+              - host: vault.prod.prossertech.com
                 paths: ["/"]
         injector:
           enabled: false

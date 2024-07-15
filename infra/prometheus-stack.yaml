@@ -19,7 +19,7 @@ spec:
             enabled: true
             ingressClassName: nginx
             hosts:
-              - alert.talos.prossertech.com
+              - alert.prod.prossertech.com
             paths: 
               - /
         grafana:
@@ -27,7 +27,7 @@ spec:
             enabled: true
             ingressClassName: nginx
             hosts:
-              - grafana.talos.prossertech.com
+              - grafana.prod.prossertech.com
             paths: 
               - /
         prometheus:
@@ -35,7 +35,7 @@ spec:
             enabled: true
             ingressClassName: nginx
             hosts:
-              - prometheus.talos.prossertech.com
+              - prometheus.prod.prossertech.com
             paths: 
               - /
   destination:
