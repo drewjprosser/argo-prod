@@ -13,6 +13,8 @@ spec:
     targetRevision: 3.12.1
     helm:
       releaseName: metrics-server
+      valuesObject:
+        args: [ "--kubelet-insecure-tls" ]
   destination:
     server: "https://kubernetes.default.svc"
     namespace: metrics-server
