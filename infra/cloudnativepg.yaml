@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: percona-pg
+  name: cloudnativepg
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: percona-pg
+    namespace: cnpg-system
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: infra/percona-pg
+    path: infra/cloudnativepg
     repoURL: https://github.com/drewjprosser/home-argo.git
     targetRevision: HEAD
     directory: 
