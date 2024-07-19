@@ -23,6 +23,8 @@ spec:
   type: rw
   serviceTemplate:
     metadata:
+      annotations:
+        "io.cilium/lb-ipam-ips": "10.10.10.101"
       labels:
         app: pooler
     spec:
