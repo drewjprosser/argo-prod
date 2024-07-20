@@ -12,25 +12,26 @@ spec:
   monitoring:
     enablePodMonitor: true
 --- 
-# apiVersion: postgresql.cnpg.io/v1
-# kind: Pooler
-# metadata:
-#   name: pooler-example-rw
-# spec:
-#   cluster:
-#     name: cluster-example
-#   instances: 3
-#   type: rw
-#   serviceTemplate:
-#     metadata:
-#       annotations:
-#         "io.cilium/lb-ipam-ips": "10.10.10.102"
-#       labels:
-#         app: pooler
-#     spec:
-#       type: LoadBalancer
-#   pgbouncer:
-#     poolMode: session
-#     parameters:
-#       max_client_conn: "1000"
-#       default_pool_size: "10"
+apiVersion: postgresql.cnpg.io/v1
+kind: Pooler
+metadata:
+  name: pooler-example-rw
+spec:
+  cluster:
+    name: cluster-example
+  instances: 3
+  type: rw
+  serviceTemplate:
+    metadata:
+      annotations:
+        "io.cilium/lb-ipam-ips": "10.10.10.100"
+        "lbipam.cilium.io/sharing-key": "1234"
+      labels:
+        app: pooler
+    spec:
+      type: LoadBalancer
+  pgbouncer:
+    poolMode: session
+    parameters:
+      max_client_conn: "1000"
+      default_pool_size: "10"
