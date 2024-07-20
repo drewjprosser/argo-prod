@@ -25,7 +25,7 @@ spec:
   serviceTemplate:
     metadata:
       annotations:
-        "io.cilium/lb-ipam-ips": "10.10.10.100"
+        # "io.cilium/lb-ipam-ips": "10.10.10.100"
         "lbipam.cilium.io/sharing-key": "1234"
         "lbipam.cilium.io/sharing-cross-namespace": "*"
       labels:
