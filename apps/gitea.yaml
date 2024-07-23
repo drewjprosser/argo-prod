@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: https://dl.gitea.com/charts/
+    targetRevision: 10.3.0
+    chart: gitea
+    helm:
+      releaseName: gitea
+      valuesObject:
+        gitea:
+          config:
+            database:
+              DB_TYPE: postgres
+              HOST: giteadb-rw.gitea.svc.cluster.local
+              NAME: gitea
+              USER: gitea
+              SCHEMA: gitea
+          additionalConfigFromEnvs:
+            - name: GITEA__DATABASE__PASSWD
+              valueFrom:
+                secretKeyRef:
+                  name: gitea-secret
+                  key: password
+        postgresql:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc" 
+    namespace: gitea
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
