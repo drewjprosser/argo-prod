@@ -17,8 +17,10 @@ spec:
         name: gitea-secret
       localeCollate: en_US.UTF-8
       localeCType: en_US.UTF-8
+      postInitSQL:
+       - CREATE SCHEMA gitea
   postgresql:
     parameters:
       password_encryption: scram-sha-256
     pg_hba:
-      - host    giteadb    gitea    10.10.10.0/24    scram-sha-256
+      - host    giteadb    gitea    10.0.0.0/8    scram-sha-256
