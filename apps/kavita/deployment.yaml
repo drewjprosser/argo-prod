@@ -58,6 +58,7 @@ metadata:
   labels:
     name: kavita-http-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: kavita.prod.prossertech.com
     http:
