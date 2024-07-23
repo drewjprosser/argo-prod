@@ -29,7 +29,6 @@ spec:
               HOST: giteadb-rw.gitea.svc.cluster.local
               NAME: giteadb
               USER: gitea
-              SCHEMA: gitea
           additionalConfigFromEnvs:
             - name: GITEA__DATABASE__PASSWD
               valueFrom:
