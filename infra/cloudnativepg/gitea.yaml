@@ -11,7 +11,7 @@ spec:
     enablePodMonitor: true
   bootstrap:
     initdb:
-      database: gitea
+      database: giteadb
       owner: gitea
       secret:
         name: gitea-secret
