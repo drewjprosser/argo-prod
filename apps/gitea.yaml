@@ -27,7 +27,7 @@ spec:
             database:
               DB_TYPE: postgres
               HOST: giteadb-rw.gitea.svc.cluster.local
-              NAME: gitea
+              NAME: giteadb
               USER: gitea
               SCHEMA: gitea
           additionalConfigFromEnvs:
