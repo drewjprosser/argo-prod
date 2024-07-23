@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kavita
+  namespace: kavita
+spec:
+  selector:
+    matchLabels:
+      app: kavita
+  template:
+    metadata:
+      labels:
+        app: kavita
+    spec:
+      containers:
+      - name: kavita
+        image: lscr.io/linuxserver/kavita:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "300m"
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+          - name:  config
+            mountPath:  /config
+          - name: data 
+            mountPath: /data
+      volumes:
+        - name: config 
+          nfs:
+            server: storage-pve-02.int.prossertech.com
+            path: /data/rke/kavita/config
+        - name: data
+          nfs:
+            server: storage-pve-02.int.prossertech.com
+            path: /data/rke/kavita/data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kavita-http
+  namespace: kavita
+spec:
+  selector:
+    app: kavita
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 5000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kavita-http-ingress
+  labels:
+    name: kavita-http-ingress
+spec:
+  rules:
+  - host: kavita.prod.prossertech.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kavita-http
+            port: 
+              number: 80
