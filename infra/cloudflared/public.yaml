@@ -21,7 +21,7 @@ data:
     - hostname: vault.prossertech.com
       service: http://vaultwarden-svc.vaultwarden.svc.cluster.local
     - hostname: git.prossertech.com
-      service: http://gitea.gitea.svc.cluster.local
+      service: http://gitea-http.gitea.svc.cluster.local
     - service: http_status:404
 ---
 apiVersion: apps/v1
