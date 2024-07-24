@@ -21,6 +21,8 @@ data:
     - hostname: vault.prossertech.com
       service: http://vaultwarden-svc.vaultwarden.svc.cluster.local
     - hostname: git.prossertech.com
+      service: ssh://gitea-ssh.gitea.svc.cluster.local:22
+    - hostname: git.prossertech.com
       service: http://gitea-http.gitea.svc.cluster.local:3000
     - service: http_status:404
 ---
