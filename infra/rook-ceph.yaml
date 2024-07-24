@@ -17,6 +17,8 @@ spec:
     directory: 
       recurse: true
   syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
