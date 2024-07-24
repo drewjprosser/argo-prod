@@ -29,6 +29,7 @@ spec:
             config:
               server:
                 ROOT_URL: https://git.prossertech.com
+                SSH_DOMAIN: https://git-ssh.prossertech.com
               database:
                 DB_TYPE: postgres
                 HOST: giteadb-rw.gitea.svc.cluster.local
