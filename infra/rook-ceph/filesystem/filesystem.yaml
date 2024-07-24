@@ -3,6 +3,8 @@ kind: CephFilesystem
 metadata:
   name: myfs
   namespace: rook-ceph
+  finalizers:
+    - 
 spec:
   metadataPool:
     replicated:
