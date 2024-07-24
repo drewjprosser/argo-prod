@@ -39,6 +39,8 @@ spec:
             email: dprosser@prossertech.com
           certmanager: 
             install: false
+          upgradeCheck:
+            enabled: false
 
   destination:
     server: "https://kubernetes.default.svc" 
