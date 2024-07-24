@@ -20,6 +20,8 @@ spec:
         releaseName: gitlab
         valuesObject:
           global:
+            ingress: 
+              configureCertmanager: false
             hosts:
               https: false
               domain: git.prod.prossertech.com
@@ -31,8 +33,12 @@ spec:
                 key: password
           postgresql:
             install: false
+          gitlab-runner:
+            install: false
           certmanager-issuer:
             email: dprosser@prossertech.com
+          certmanager: 
+            install: false
 
   destination:
     server: "https://kubernetes.default.svc" 

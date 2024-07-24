@@ -23,7 +23,7 @@ data:
     - hostname: git-ssh.prossertech.com
       service: ssh://gitea-ssh.gitea.svc.cluster.local:22
     - hostname: git.prossertech.com
-      service: http://gitea-http.gitea.svc.cluster.local:3000
+      service: http://git.prod.prossertech.com
     - service: http_status:404
 ---
 apiVersion: apps/v1
