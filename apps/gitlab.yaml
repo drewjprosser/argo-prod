@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitlab
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/drewjprosser/argo-prod.git
+      path: apps/gitlab
+      targetRevision: HEAD
+    - repoURL: https://charts.gitlab.io/
+      targetRevision: 8.2.0
+      chart: gitlab
+      helm:
+        releaseName: gitlab
+        valuesObject:
+          global:
+            hosts:
+              domain: git.prod.prossertech.com
+              externalIP: 10.10.10.110
+            psql: 
+              host: gitlabdb-rw.gitlab.svc.cluster.local
+              password:
+                secret: gitlab-secret 
+                key: password
+          postgresql:
+            install: false
+
+  destination:
+    server: "https://kubernetes.default.svc" 
+    namespace: gitlab
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
