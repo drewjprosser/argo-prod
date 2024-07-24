@@ -18,6 +18,8 @@ spec:
     modules:
       - name: rook
         enabled: true
+      - name: rgw 
+        enabled: true
   dashboard:
     enabled: true
     ssl: true
