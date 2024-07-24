@@ -20,7 +20,7 @@ data:
       service: http://jellyfin-svc.jellyfin.svc.cluster.local
     - hostname: vault.prossertech.com
       service: http://vaultwarden-svc.vaultwarden.svc.cluster.local
-    - hostname: git.prossertech.com
+    - hostname: git-ssh.prossertech.com
       service: ssh://gitea-ssh.gitea.svc.cluster.local:22
     - hostname: git.prossertech.com
       service: http://gitea-http.gitea.svc.cluster.local:3000
