@@ -1,0 +1,71 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/drewjprosser/argo-prod.git
+      path: apps/gitea
+      targetRevision: HEAD
+    - repoURL: https://dl.gitea.com/charts/
+      targetRevision: 10.3.0
+      chart: gitea
+      helm:
+        releaseName: gitea
+        valuesObject:
+          redis-cluster:
+            enabled: false
+          redis: 
+            enabled: true
+          postgresql-ha:
+            enabled: false
+          gitea:
+            config:
+              server:
+                ROOT_URL: https://git.prossertech.com
+              database:
+                DB_TYPE: postgres
+                HOST: giteadb-rw.gitea.svc.cluster.local
+                NAME: giteadb
+                USER: gitea
+                SCHEMA: public
+              service:
+                DISABLE_REGISTRATION: true
+            additionalConfigFromEnvs:
+              - name: GITEA__ADMIN__USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: gitea-admin
+                    key: username
+              - name: GITEA__ADMIN__PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: gitea-admin
+                    key: password
+              - name: GITEA__ADMIN__EMAIL
+                valueFrom:
+                  secretKeyRef:
+                    name: gitea-admin
+                    key: email
+              - name: GITEA__DATABASE__PASSWD
+                valueFrom:
+                  secretKeyRef:
+                    name: gitea-secret
+                    key: password
+          postgresql:
+            enabled: false
+  destination:
+    server: "https://kubernetes.default.svc" 
+    namespace: gitea
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
