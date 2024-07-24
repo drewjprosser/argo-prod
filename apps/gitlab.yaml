@@ -20,6 +20,8 @@ spec:
         releaseName: gitlab
         valuesObject:
           global:
+            webservice:
+              workerTimeout: 120
             ingress: 
               configureCertmanager: false
             hosts:
@@ -33,6 +35,12 @@ spec:
                 key: password
           postgresql:
             install: false
+          webservice:
+            deployment:
+              livenessProbe:
+                initialDelaySeconds: 60
+              readinessProbe: 
+                initialDelaySeconds: 40
           gitlab-runner:
             install: false
           certmanager-issuer:
