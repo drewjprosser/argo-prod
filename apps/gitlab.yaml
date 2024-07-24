@@ -22,6 +22,11 @@ spec:
           global:
             webservice:
               workerTimeout: 120
+              deployment:
+                livenessProbe:
+                  initialDelaySeconds: 60
+                readinessProbe: 
+                  initialDelaySeconds: 40
             ingress: 
               configureCertmanager: false
             hosts:
@@ -35,12 +40,6 @@ spec:
                 key: password
           postgresql:
             install: false
-          webservice:
-            deployment:
-              livenessProbe:
-                initialDelaySeconds: 60
-              readinessProbe: 
-                initialDelaySeconds: 40
           gitlab-runner:
             install: false
           certmanager-issuer:
