@@ -31,13 +31,14 @@ spec:
               password:
                 secret: gitlab-secret 
                 key: password
-          webservice:
-            workerTimeout: 120
-            deployment:
-              livenessProbe:
-                initialDelaySeconds: 60
-              readinessProbe: 
-                initialDelaySeconds: 40
+          gitlab:
+            webservice:
+              workerTimeout: 120
+              deployment:
+                livenessProbe:
+                  initialDelaySeconds: 60
+                readinessProbe: 
+                  initialDelaySeconds: 40
           postgresql:
             install: false
           gitlab-runner:
