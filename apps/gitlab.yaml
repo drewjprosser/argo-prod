@@ -33,12 +33,13 @@ spec:
                 key: password
           gitlab:
             webservice:
-              workerTimeout: 120
               deployment:
                 livenessProbe:
                   initialDelaySeconds: 60
+                  failureThreshold: 10
                 readinessProbe: 
                   initialDelaySeconds: 40
+                  failureThreshold: 10
           postgresql:
             install: false
           gitlab-runner:
