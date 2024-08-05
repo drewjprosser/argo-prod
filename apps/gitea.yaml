@@ -24,6 +24,7 @@ spec:
           - host: git.prod.prossertech.com
             paths:
             - path: /
+              pathType: Prefix
         service:
           ssh:
             annotations:
