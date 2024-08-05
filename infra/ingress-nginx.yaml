@@ -15,7 +15,7 @@ spec:
       releaseName: ingress-nginx
       valuesObject:
         controller:
-          ingressClassResources:
+          ingressClassResource:
             default: "true"
           extraArgs:
             enable-ssl-passthrough: ""
