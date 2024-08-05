@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     path: apps/prossertech
-    repoURL: https://github.com/drewjprosser/home-argo.git
+    repoURL: https://github.com/drewjprosser/argo-prod.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:

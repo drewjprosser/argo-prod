@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     path: infra/rook-ceph
-    repoURL: https://github.com/drewjprosser/home-argo.git
+    repoURL: https://github.com/drewjprosser/argo-prod.git
     targetRevision: HEAD
     directory: 
       recurse: true
