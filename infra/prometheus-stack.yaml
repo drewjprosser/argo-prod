@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: kube-prometheus-stack
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -47,9 +49,7 @@ spec:
         pod-security.kubernetes.io/enforce: privileged
     syncOptions:
       - CreateNamespace=true
-      # - ServerSideApply=true
-      - Replace=true
-      - Force=true
+      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
