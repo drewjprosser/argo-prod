@@ -1,0 +1,53 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: gitea
+    repoURL: https://dl.gitea.com/charts/
+    targetRevision: 4.10.1
+    helm:
+      releaseName: gitea
+      valuesObject:
+        service:
+          ssh:
+            annotations:
+              lbipam.cilium.io/sharing-cross-namespace: "*"
+              io.cilium/lb-ipam-ips: "10.10.10.100"
+              lbipam.cilium.io/sharing-key: "1234"
+        redis-cluster:
+          enabled: false
+        redis:
+          enabled: true
+        postgresql:
+          enabled: true
+        postgresql-ha:
+          enabled: false
+
+        persistence:
+          enabled: true
+
+        gitea:
+          config:
+            database:
+              DB_TYPE: postgres
+            indexer:
+              ISSUE_INDEXER_TYPE: bleve
+              REPO_INDEXER_ENABLED: true
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: gitea
+  syncPolicy:
+    managedNamespaceMetadata:
+      annotations:
+        lbipam.cilium.io/sharing-cross-namespace: "*"
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
