@@ -49,6 +49,7 @@ spec:
       - CreateNamespace=true
       # - ServerSideApply=true
       - Replace=true
+      - Force=true
     automated:
       prune: true
       selfHeal: true
