@@ -16,14 +16,6 @@ data:
     ingress:
     - hostname: prossertech.com
       service: http://prossertech-svc.prossertech.svc.cluster.local
-    - hostname: jellyfin.prossertech.com
-      service: http://jellyfin-svc.jellyfin.svc.cluster.local
-    - hostname: vault.prossertech.com
-      service: http://vaultwarden-svc.vaultwarden.svc.cluster.local
-    - hostname: git-ssh.prossertech.com
-      service: ssh://gitea-ssh.gitea.svc.cluster.local:22
-    - hostname: git.prossertech.com
-      service: http://git.prod.prossertech.com
     - service: http_status:404
 ---
 apiVersion: apps/v1
