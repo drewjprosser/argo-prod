@@ -1,0 +1,55 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: kube-prometheus-stack
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 61.7.1
+    helm:
+      releaseName: kube-prometheus-stack
+      valuesObject:
+        alertmanager:
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            hosts:
+              - alert.prod.prossertech.com
+            paths: 
+              - /
+        grafana:
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            hosts:
+              - grafana.prod.prossertech.com
+            paths: 
+              - /
+        prometheus:
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            hosts:
+              - prometheus.prod.prossertech.com
+            paths: 
+              - /
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kube-prometheus-stack
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+    automated:
+      prune: true
+      selfHeal: true
