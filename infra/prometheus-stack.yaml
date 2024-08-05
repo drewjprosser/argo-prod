@@ -16,6 +16,11 @@ spec:
     helm:
       releaseName: kube-prometheus-stack
       valuesObject:
+        defaultRules:
+          rules:
+            etcd: false
+        kubeEtcd: 
+          enabled: false
         alertmanager:
           ingress:
             enabled: true
