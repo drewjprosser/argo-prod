@@ -41,6 +41,7 @@ spec:
         gitea:
           admin: 
             existingSecret: gitea-secret
+            email: dprosser@prossertech.com
           config:
             database:
               DB_TYPE: postgres
