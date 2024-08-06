@@ -43,6 +43,8 @@ spec:
             existingSecret: gitea-secret
             email: dprosser@prossertech.com
           config:
+            actions: 
+              ENABLED: true
             server:
               ROOT_URL: https://git.prossertech.com/
             service:
