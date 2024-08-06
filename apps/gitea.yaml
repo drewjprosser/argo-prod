@@ -27,6 +27,7 @@ spec:
               pathType: Prefix
         service:
           ssh:
+            type: LoadBalancer
             annotations:
               lbipam.cilium.io/sharing-cross-namespace: "*"
               io.cilium/lb-ipam-ips: "10.10.10.100"
