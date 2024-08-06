@@ -28,13 +28,6 @@ spec:
             paths:
             - path: /
               pathType: Prefix
-        service:
-          ssh:
-            type: LoadBalancer
-            annotations:
-              lbipam.cilium.io/sharing-cross-namespace: "*"
-              io.cilium/lb-ipam-ips: "10.10.10.100"
-              lbipam.cilium.io/sharing-key: "1234"
         redis-cluster:
           enabled: false
         redis:
