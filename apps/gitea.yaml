@@ -57,8 +57,8 @@ spec:
     namespace: gitea
   syncPolicy:
     managedNamespaceMetadata:
-      annotations:
-        lbipam.cilium.io/sharing-cross-namespace: "*"
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
     syncOptions:
       - CreateNamespace=true
     automated:
