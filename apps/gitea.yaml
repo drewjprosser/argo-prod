@@ -1,0 +1,62 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  sources:
+  - repoURL: https://github.com/drewjprosser/argo-prod.git
+    path: apps/gitea
+    targetRevision: HEAD
+  - chart: gitea
+    repoURL: https://dl.gitea.com/charts/
+    targetRevision: 10.4.0
+    helm:
+      releaseName: gitea
+      valuesObject:
+        ingress:
+          enabled: true
+          annotations:
+            lbipam.cilium.io/sharing-cross-namespace: "*"
+            io.cilium/lb-ipam-ips: "10.10.10.100"
+            lbipam.cilium.io/sharing-key: "1234"
+          hosts:
+          - host: git.prod.prossertech.com
+            paths:
+            - path: /
+              pathType: Prefix
+        redis-cluster:
+          enabled: false
+        redis:
+          enabled: true
+        postgresql:
+          enabled: true
+        postgresql-ha:
+          enabled: false
+        persistence:
+          enabled: true
+        gitea:
+          admin: 
+            existingSecret: gitea-secret
+            email: dprosser@prossertech.com
+          config:
+            database:
+              DB_TYPE: postgres
+            indexer:
+              ISSUE_INDEXER_TYPE: bleve
+              REPO_INDEXER_ENABLED: true
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: gitea
+  syncPolicy:
+    managedNamespaceMetadata:
+      annotations:
+        lbipam.cilium.io/sharing-cross-namespace: "*"
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
