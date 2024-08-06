@@ -43,6 +43,10 @@ spec:
             existingSecret: gitea-secret
             email: dprosser@prossertech.com
           config:
+            server:
+              ROOT_URL: https://git.prossertech.com/
+            service:
+              DISABLE_REGISTRATION: true
             database:
               DB_TYPE: postgres
             indexer:
