@@ -19,7 +19,7 @@ data:
     - hostname: git.prossertech.com 
       service: http://gitea-http.gitea.svc.cluster.local:3000
     - hostname: guacamole.prossertech.com
-      service: https://jumphost-01.int.prossertech.com:8443/
+      service: https://10.10.10.150:8443/
     - service: http_status:404
 ---
 apiVersion: apps/v1
