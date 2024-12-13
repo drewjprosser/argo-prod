@@ -1,0 +1,28 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: "argocd-tls"
+  namespace: argocd
+spec:
+  secretStoreRef:
+    name: vault-backend
+    kind: ClusterSecretStore
+  refreshInterval: 3m
+  target:
+    name: int-prossertech-com
+    template:
+      engineVersion: v2
+      type: kubernetes.io/tls
+      data:
+        tls.crt: "{{ .crt }}"
+        tls.key: "{{ .key }}"
+  data:
+  - secretKey: crt
+    remoteRef:
+      key: /tls/int.prossertech.com
+      property: crt
+  - secretKey: key
+    remoteRef:
+      key: /tls/int.prossertech.com
+      property: key
+    

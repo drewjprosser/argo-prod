@@ -15,11 +15,15 @@ data:
 
     ingress:
     - hostname: prossertech.com
+<<<<<<< HEAD
       service: http://prossertech-svc.prossertech.svc.cluster.local
     - hostname: git.prossertech.com 
       service: http://gitea-http.gitea.svc.cluster.local:3000
     - hostname: guacamole.prossertech.com
       service: http://10.10.10.50:8081
+=======
+      service: http://prossertech.prossertech.svc.cluster.local
+>>>>>>> 591d44b (configure for new deployment)
     - service: http_status:404
 ---
 apiVersion: apps/v1
