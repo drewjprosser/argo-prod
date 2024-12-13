@@ -24,7 +24,7 @@ spec:
       env:
         - name: VAULT_ADDR
           value: https://vault-internal.int.prossertech.com
-      image: vault
+      image: hashicorp/vault
       name: vault-proxy
       volumeMounts:
         - mountPath: /etc/vault
