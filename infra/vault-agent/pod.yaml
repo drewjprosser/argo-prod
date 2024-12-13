@@ -3,6 +3,8 @@ kind: Pod
 metadata:
   name: vault-proxy
   namespace: default
+  labels:
+    app: vault-proxy
 spec:
   serviceAccountName: vault-auth
 
@@ -27,3 +29,14 @@ spec:
       volumeMounts:
         - mountPath: /etc/vault
           name: config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vault-proxy
+spec:
+  selector:
+    app: vault-proxy
+  ports:
+  - port: 80
+    targetPort: 8200
